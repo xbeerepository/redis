@@ -1,0 +1,23 @@
+schema-version: 1.0
+
+#require:
+
+var:
+  xbee:
+    user: default
+    group: default
+
+#var:
+#in:
+
+user: "{{ .xbee.user }}"
+directory: "{{ .xbee.app }}"
+
+
+#dependency:
+
+#provision:
+
+#deploy:
+
+#cmd:
