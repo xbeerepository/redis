@@ -1,0 +1,23 @@
+schema-version: 1.0
+
+
+dependency: openssl
+
+builder:
+  - pkg-config
+  - tcl
+
+var:
+  xbee:
+    version:
+
+provision:
+  - url: https://github.com/redis/redis/archive/refs/tags/{{ .xbee.version }}.tar.gz
+
+
+build:
+  - shell:
+      cmds:
+        - make BUILD_TLS=yes
+        - make PREFIX={{ .xbee.out }}/usr install
+      directory: "{{ .xbee.src }}/redis-{{ .xbee.version }}"
